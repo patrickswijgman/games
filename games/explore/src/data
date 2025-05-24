@@ -1,0 +1,19 @@
+Game
+active array number
+destroyed array number
+
+Entity soa 2048
+type array uint8
+posX array float32
+posY array float32
+state array uint8
+stateNext array uint8
+stateTime array uint32
+anim array uint8
+animX array float32
+animY array float32
+animScaleX array float32
+animScaleY array float32
+animTime array uint32
+isActive array uint8
+isFlipped array uint8
