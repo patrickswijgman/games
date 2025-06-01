@@ -5,9 +5,7 @@
   "scripts": {
     "build": "npm run build --workspaces"
   },
-  "workspaces": [
-    "games/*"
-  ],
+  "workspaces": ["games/*"],
   "author": "Patrick Swijgman",
   "license": "ISC"
 }

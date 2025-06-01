@@ -1,4 +1,4 @@
-import { anim, animScaleX, animScaleY, animTime, animX, animY } from "@/data.ts";
+import { anim, animScaleX, animScaleY, animTime, animX, animY } from "@/data";
 import { scaleTransform, translateTransform } from "snuggy";
 
 export const enum Anim {

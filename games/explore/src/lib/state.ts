@@ -1,5 +1,5 @@
-import { state, stateNext, stateTime } from "@/data.ts";
-import { Anim, setAnimation } from "@/lib/animation";
+import { state, stateNext, stateTime } from "@/data";
+import { Anim, setAnimation } from "@/lib/anim";
 
 export const enum State {
   NONE,

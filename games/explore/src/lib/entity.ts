@@ -1,4 +1,4 @@
-import { animScaleX, animScaleY, isActive, isFlipped, MAX_ENTITY_COUNT, posX, posY, type, zeroEntity } from "@/data.ts";
+import { MAX_ENTITY_COUNT, animScaleX, animScaleY, isActive, isFlipped, posX, posY, type, zeroEntity } from "@/data";
 import { addCameraTransform, resetTransform, scaleTransform, translateTransform } from "snuggy";
 
 export const enum Type {

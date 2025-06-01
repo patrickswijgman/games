@@ -1,4 +1,4 @@
-import { posX, posY } from "@/data.ts";
+import { posX, posY } from "@/data";
 import { delta, getDistance } from "snuggy";
 
 export function seek(i: number, x: number, y: number, speed: number) {

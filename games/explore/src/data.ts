@@ -1,5 +1,5 @@
 /*
- * Generated with game-data-gen on 5/21/2025, 9:23:44 PM. DO NOT MODIFY THIS FILE!
+ * Generated with game-data-gen on 6/1/2025, 9:16:51 AM. DO NOT MODIFY THIS FILE!
  */
 
 /*
@@ -8,12 +8,12 @@
  * --------------------------------------------------
  */
 
-export const active = new Array<number>()
+export const entities = new Array<number>()
 export const destroyed = new Array<number>()
 
-/** Zero the active field within the Game group. */
-export function zeroActive() {
-  active.length = 0
+/** Zero the entities field within the Game group. */
+export function zeroEntities() {
+  entities.length = 0
 }
 
 /** Zero the destroyed field within the Game group. */
@@ -23,7 +23,7 @@ export function zeroDestroyed() {
 
 /** Zero all fields within the Game group. */
 export function zeroGameData() {
-  active.length = 0
+  entities.length = 0
   destroyed.length = 0
 }
 

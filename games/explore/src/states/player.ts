@@ -1,8 +1,8 @@
-import { Input } from "@/consts.ts";
-import { seek } from "@/lib/steering.ts";
-import { Anim, setAnimation } from "@/lib/animation";
+import { Input } from "@/consts";
+import { isFlipped, posX, posY } from "@/data";
+import { Anim, setAnimation } from "@/lib/anim";
+import { seek } from "@/lib/steering";
 import { isInputDown, updateCamera } from "snuggy";
-import { isFlipped, posX, posY } from "@/data.ts";
 
 export function updatePlayerState(i: number) {
   let x = posX[i];

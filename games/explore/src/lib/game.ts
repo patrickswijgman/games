@@ -1,7 +1,7 @@
-import { active, destroyed, isActive, zeroDestroyed } from "@/data.ts";
+import { destroyed, entities, isActive, posY, zeroDestroyed } from "@/data";
 
 export function addEntity(i: number) {
-  active.push(i);
+  entities.push(i);
 }
 
 export function destroyEntity(i: number) {
@@ -11,19 +11,27 @@ export function destroyEntity(i: number) {
   }
 }
 
+export function sortEntities() {
+  entities.sort(sortEntitiesOnDepth);
+}
+
+function sortEntitiesOnDepth(a: number, b: number) {
+  return posY[a] - posY[b];
+}
+
 export function cleanupDestroyedEntities() {
   if (!destroyed.length) {
     return;
   }
 
   for (const index of destroyed) {
-    const lastIndex = active.length - 1;
+    const lastIndex = entities.length - 1;
 
     if (index !== lastIndex) {
-      active[index] = active[lastIndex];
+      entities[index] = entities[lastIndex];
     }
 
-    active.pop();
+    entities.pop();
   }
 
   zeroDestroyed();

@@ -1,14 +1,15 @@
-import { updateBreathAnimation } from "@/anims/breath.ts";
-import { updateWalkAnimation } from "@/anims/walk.ts";
-import { Color, Font, Texture } from "@/consts.ts";
-import { addPlayer, renderPlayer } from "@/entities/player.ts";
-import { updatePlayerState } from "@/states/player.ts";
-import { drawText, fps, loadFont, loadTexture, resetTransform, run, scaleTransform, setAlpha, setCameraPosition, setCameraSmoothing, setFont, translateTransform } from "snuggy";
-import { active, anim, isActive, state, stateNext, type } from "@/data.ts";
-import { State, transitionState } from "@/lib/state.ts";
-import { Anim } from "@/lib/animation.ts";
-import { Type } from "@/lib/entity.ts";
-import { cleanupDestroyedEntities } from "@/lib/game.ts";
+import { updateBreathAnimation } from "@/anims/breath";
+import { updateWalkAnimation } from "@/anims/walk";
+import { Color, Font, Texture } from "@/consts";
+import { anim, entities, isActive, state, stateNext, type } from "@/data";
+import { addPlayer, renderPlayer } from "@/entities/player";
+import { Anim } from "@/lib/anim";
+import { Type } from "@/lib/entity";
+import { cleanupDestroyedEntities, sortEntities } from "@/lib/game";
+import { State, transitionState } from "@/lib/state";
+import { loadFloorTexture, loadOutlineTexture } from "@/lib/textures";
+import { updatePlayerState } from "@/states/player";
+import { addCameraTransform, drawText, drawTexture, fps, loadFont, loadTexture, resetTransform, run, scaleTransform, setAlpha, setCameraPosition, setCameraSmoothing, setFont, translateTransform } from "snuggy";
 
 async function setup() {
   await Promise.all([
@@ -21,15 +22,26 @@ async function setup() {
     // Sounds
   ]);
 
-  addPlayer(20, 20);
+  loadFloorTexture();
+  loadOutlineTexture(Texture.ATLAS_OUTLINE, Texture.ATLAS, "white");
 
-  setCameraPosition(20, 20);
+  const x = 1024;
+  const y = 1024;
+
+  addPlayer(x, y);
+
+  setCameraPosition(x, y);
   setCameraSmoothing(0.1);
   setFont(Font.DEFAULT);
 }
 
 function update() {
-  for (const i of active) {
+  addCameraTransform();
+  drawTexture(Texture.FLOOR, 0, 0);
+
+  sortEntities();
+
+  for (const i of entities) {
     if (!isActive[i]) {
       continue;
     }

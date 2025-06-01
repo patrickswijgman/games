@@ -1,9 +1,9 @@
-import { addAnimationTransform } from "@/lib/animation";
-import { setState, State } from "@/lib/state";
-import { SHADOW_ALPHA, Texture } from "@/consts.ts";
-import { newEntity, setEntityTransform, Type } from "@/lib/entity.ts";
+import { SHADOW_ALPHA, Texture } from "@/consts";
+import { addAnimationTransform } from "@/lib/anim";
+import { Type, newEntity, setEntityTransform } from "@/lib/entity";
+import { addEntity } from "@/lib/game";
+import { State, setState } from "@/lib/state";
 import { drawSprite, setAlpha } from "snuggy";
-import { addEntity } from "@/lib/game.ts";
 
 export function addPlayer(x: number, y: number) {
   const i = newEntity(Type.PLAYER, x, y);

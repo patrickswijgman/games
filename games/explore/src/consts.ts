@@ -2,6 +2,8 @@ export const SHADOW_ALPHA = 0.4;
 
 export const enum Texture {
   ATLAS = "atlas",
+  ATLAS_OUTLINE = "atlas_outline",
+  FLOOR = "floor",
 }
 
 export const enum Font {
